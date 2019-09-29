@@ -24,7 +24,7 @@ public class base {
         //FF
         //IE or Edge
         prop = new Properties();
-        FileInputStream fis = new FileInputStream("F:\\Charlie\\src\\main\\resources\\data.properties");
+        FileInputStream fis = new FileInputStream("F:\\Charlie\\src\\main\\java\\resources\\data.properties");
 
         prop.load(fis);
         String browserName = prop.getProperty("browser");

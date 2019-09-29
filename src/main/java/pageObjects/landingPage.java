@@ -19,4 +19,7 @@ public class landingPage {
         return driver.findElement(login);
     }
 
+    public String getTitle() {
+        return driver.getTitle();
+    }
 }
