@@ -8,7 +8,7 @@ import pageObjects.landingPage;
 
 import java.io.IOException;
 
-public class validateTitle extends base {
+public class mainPage extends base {
 
     private static Logger Log = LogManager.getLogger(base.class.getName());
 
