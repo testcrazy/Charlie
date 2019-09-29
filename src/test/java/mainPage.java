@@ -8,6 +8,8 @@ import pageObjects.landingPage;
 
 import java.io.IOException;
 
+import static java.lang.Thread.sleep;
+
 public class mainPage extends base {
 
     private static Logger Log = LogManager.getLogger(base.class.getName());
@@ -31,6 +33,27 @@ public class mainPage extends base {
         Assert.assertEquals(lp.getTitle(), prop.getProperty("landingPageTitle"));
         Log.info("Successfully validated page title");
     }
+
+    @Test
+    public void validationLoginBtn() throws IOException{
+        landingPage lp = new pageObjects.landingPage(driver);
+
+        //Check if Login btn is displayed
+        Assert.assertTrue(lp.getLogin().isDisplayed());
+        Log.info("Successfully validated login btn");
+    }
+
+    @Test
+    public void clickLoginBtn() throws IOException, InterruptedException {
+        landingPage lp = new pageObjects.landingPage(driver);
+
+        //Click login btn to get to next page
+        sleep(2000);
+        lp.clickLogin().click();
+        Log.info("Successfully clicked the Login btn");
+    }
+
+
 
 
 }

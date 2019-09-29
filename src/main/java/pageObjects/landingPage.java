@@ -9,6 +9,7 @@ public class landingPage {
     public WebDriver driver;
 
     By login = By.cssSelector(".login-button");
+    By loginBtn = By.xpath("//*[@id=\"menu\"]/div[4]/div[2]/a");
 
     public landingPage(WebDriver driver){
 
@@ -17,6 +18,10 @@ public class landingPage {
 
     public WebElement getLogin(){
         return driver.findElement(login);
+    }
+
+    public WebElement clickLogin(){
+        return driver.findElement(loginBtn);
     }
 
     public String getTitle() {
