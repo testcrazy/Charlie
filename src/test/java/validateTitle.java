@@ -29,7 +29,7 @@ public class validateTitle extends base {
 
         //Compare landing page title with stored data
         Assert.assertEquals(lp.getTitle(), prop.getProperty("landingPageTitle"));
-        Log.info("Successfully validated text message");
+        Log.info("Successfully validated page title");
     }
 
 
