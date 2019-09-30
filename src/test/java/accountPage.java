@@ -1,17 +1,26 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.loginPage;
 import resources.base;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import static java.lang.Thread.sleep;
+
 public class accountPage extends base {
 
     private static Logger Log = LogManager.getLogger(base.class.getName());
 
+    public accountPage() throws FileNotFoundException {
+    }
+
     @Test
-    public void validateemailField(){
+    public void validateemailField() throws IOException{
 
         loginPage ap = new pageObjects.loginPage(driver);
 
@@ -21,7 +30,7 @@ public class accountPage extends base {
     }
 
     @Test(priority = 1)
-    public void validatePasswField(){
+    public void validatePasswField() throws IOException{
         loginPage ap = new pageObjects.loginPage(driver);
 
         //Validate if password input field is displayed
@@ -30,7 +39,7 @@ public class accountPage extends base {
     }
 
     @Test(priority = 2)
-    public void validateLoginBtn(){
+    public void validateLoginBtn() throws IOException{
         loginPage ap = new pageObjects.loginPage(driver);
 
         //Validate if login btn is displayed
@@ -39,7 +48,7 @@ public class accountPage extends base {
     }
 
     @Test(priority = 3)
-    public void validatePasswReset(){
+    public void validatePasswReset()throws IOException{
         loginPage ap = new pageObjects.loginPage(driver);
 
         //Validate if password reset link is displayed
@@ -48,11 +57,31 @@ public class accountPage extends base {
     }
 
     @Test(priority = 4)
-    public void validatesignUp(){
+    public void validatesignUp()throws IOException{
         loginPage ap = new pageObjects.loginPage(driver);
 
         //Validate if signup for link is displayed
         Assert.assertTrue(ap.signUp().isDisplayed());
         Log.info("Successfully validated signup for link");
+    }
+
+    @Test(priority = 5)
+    public void validateWelcomeMsg() throws IOException, InterruptedException {
+        loginPage ap = new pageObjects.loginPage(driver);
+
+        //Validate if welcome message is correct
+        sleep(2000);
+        String MSG = ap.getWelcome().getText();
+        System.out.println("Auf der Seite gefunden : " + MSG);
+        System.out.println(prop.getProperty("accountPageTitle"));
+
+        String data ="";
+        data = prop.getProperty("accountPageWelcome");
+        System.out.println(data);
+
+
+        //System.out.println("Data hinterlegt : " + data);
+        //Assert.assertEquals(ap.getWelcome().getText(), prop.getProperty("accountPageWelcome"));
+        Log.info("Successfully validated welcome message");
     }
 }

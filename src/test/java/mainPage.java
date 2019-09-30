@@ -70,6 +70,7 @@ public class mainPage extends base {
         //Check child window title
         Assert.assertEquals(ap.getTitle(), prop.getProperty("accountPageTitle"));
         Log.info("Successfully validated child window title");
+
     }
 
 

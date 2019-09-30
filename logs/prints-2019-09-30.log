@@ -1,0 +1,7 @@
+11:18:49.992 [main] INFO  resources.base - Successfully clicked the Login btn
+11:18:51.855 [main] INFO  resources.base - Successfully switched to child window
+11:18:53.961 [main] INFO  resources.base - Successfully validated child window title
+11:18:54.036 [main] INFO  resources.base - Successfully validated email input field
+11:18:54.104 [main] INFO  resources.base - Successfully validated password input field
+11:18:54.176 [main] INFO  resources.base - Successfully validated login btn
+11:18:54.259 [main] INFO  resources.base - Successfully validated password reset link

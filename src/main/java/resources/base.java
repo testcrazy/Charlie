@@ -41,8 +41,6 @@ public class base {
             driver = new InternetExplorerDriver();
         }
 
-        //driver.get(prop.getProperty("url"));
-
         //Timeout to make sure that the landing page is fully loaded and no error will be thrown
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
