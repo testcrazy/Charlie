@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import resources.base;
 import pageObjects.landingPage;
+import pageObjects.loginPage;
 
 import java.io.IOException;
 
@@ -34,7 +35,7 @@ public class mainPage extends base {
         Log.info("Successfully validated page title");
     }
 
-    @Test
+    @Test(priority = 1)
     public void validationLoginBtn() throws IOException{
         landingPage lp = new pageObjects.landingPage(driver);
 
@@ -43,7 +44,7 @@ public class mainPage extends base {
         Log.info("Successfully validated login btn");
     }
 
-    @Test
+    @Test(priority = 2)
     public void clickLoginBtn() throws IOException, InterruptedException {
         landingPage lp = new pageObjects.landingPage(driver);
 
@@ -51,6 +52,24 @@ public class mainPage extends base {
         sleep(2000);
         lp.clickLogin().click();
         Log.info("Successfully clicked the Login btn");
+    }
+
+    @Test(priority = 3)
+    public void switchWindow(){
+        landingPage lp = new pageObjects.landingPage(driver);
+
+        //Call for switch window method
+        lp.switchChildWindow();
+
+    }
+
+    @Test(priority = 4)
+    public void getTitleAccounts(){
+        loginPage ap = new pageObjects.loginPage(driver);
+
+        //Check child window title
+        Assert.assertEquals(ap.getTitle(), prop.getProperty("accountPageTitle"));
+        Log.info("Successfully validated child window title");
     }
 
 

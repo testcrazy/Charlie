@@ -1,2 +1,6 @@
-13:35:59.716 [main] INFO  resources.base - Successfully validated page title
-13:35:59.959 [main] INFO  resources.base - Successfully validated login btn
+08:50:56.653 [main] INFO  resources.base - Successfully validated login btn
+09:02:48.666 [main] INFO  resources.base - Driver is initialized
+09:02:58.353 [main] INFO  resources.base - navigated to home page
+09:02:58.418 [main] INFO  resources.base - Successfully validated page title
+09:02:58.590 [main] INFO  resources.base - Successfully validated login btn
+09:03:00.865 [main] INFO  resources.base - Successfully clicked the Login btn
