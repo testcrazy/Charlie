@@ -10,14 +10,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+
 import static java.lang.Thread.sleep;
 
 public class accountPage extends base {
 
     private static Logger Log = LogManager.getLogger(base.class.getName());
-
-    public accountPage() throws FileNotFoundException {
-    }
 
     @Test
     public void validateemailField() throws IOException{
@@ -67,21 +65,17 @@ public class accountPage extends base {
 
     @Test(priority = 5)
     public void validateWelcomeMsg() throws IOException, InterruptedException {
+
+        prop = new Properties();
+        FileInputStream fis = new FileInputStream("F:\\Charlie\\src\\main\\java\\resources\\data.properties");
+
+        prop.load(fis);
+
         loginPage ap = new pageObjects.loginPage(driver);
 
-        //Validate if welcome message is correct
+        //Validate if welc ome message is correct
         sleep(2000);
-        String MSG = ap.getWelcome().getText();
-        System.out.println("Auf der Seite gefunden : " + MSG);
-        System.out.println(prop.getProperty("accountPageTitle"));
-
-        String data ="";
-        data = prop.getProperty("accountPageWelcome");
-        System.out.println(data);
-
-
-        //System.out.println("Data hinterlegt : " + data);
-        //Assert.assertEquals(ap.getWelcome().getText(), prop.getProperty("accountPageWelcome"));
+        Assert.assertEquals(ap.getWelcome().getText(), prop.getProperty("accountPageWelcome"));
         Log.info("Successfully validated welcome message");
     }
 }
