@@ -1,6 +1,7 @@
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pageObjects.loginPage;
 import resources.base;
@@ -73,9 +74,61 @@ public class accountPage extends base {
 
         loginPage ap = new pageObjects.loginPage(driver);
 
-        //Validate if welc ome message is correct
+        //Validate if welcome message is correct
         sleep(2000);
         Assert.assertEquals(ap.getWelcome().getText(), prop.getProperty("accountPageWelcome"));
         Log.info("Successfully validated welcome message");
+    }
+    @Test(priority = 6 ,dataProvider = "getData")
+    public void loginTests(String email, String password)throws IOException{
+        loginPage ap = new pageObjects.loginPage(driver);
+
+        //Enter email and password
+        ap.getEmail().sendKeys(email);
+        ap.getPassword().sendKeys(password);
+
+        //Click login btn
+        ap.getLoginBtn().click();
+        Log.info("Entered username, password and clicked login btn");
+
+        //Check for displayed error message
+        Assert.assertTrue(ap.getloginError().isDisplayed());
+        Log.info("Error message is displayed");
+
+        //Clear input fields for next test
+        ap.getEmail().clear();
+        ap.getPassword().clear();
+    }
+
+
+    @DataProvider
+    public Object[][] getData(){
+        Object[][] data = new Object[8][2];
+
+        data [0][0] = "6317@berlin-htw";
+        data [0][1] = "Pluspeter";
+
+        data [1][0] = "6317@berlin-htw.de";
+        data [1][1] = "pluspeter";
+
+        data [2][0] = "@berlin-htw.de";
+        data [2][1] = "PLUSPETER";
+
+        data [3][0] = "berlin-htw.de";
+        data [3][1] = "Pluspeter";
+
+        data [4][0] = "6317@berlin-htw.de";
+        data [4][1] = "PLUSPETER";
+
+        data [5][0] = "6317@berlin-htw.de";
+        data [5][1] = "Pluspeter1";
+
+        data [6][0] = "6317@berlin-htw.de";
+        data [6][1] = "1Pluspeter";
+
+        data [7][0] = "6317@berlin-htw.de";
+        data [7][1] = "Pluspeter";
+
+        return data;
     }
 }

@@ -15,6 +15,7 @@ public class loginPage extends base {
     By forgotPassw = By.cssSelector(".forgotPass");
     By signUp = By.cssSelector(".go-to-register > a:nth-child(1)");
     By welcomeMsg = By.xpath("/html/body/div/div[3]/div/h1");
+    By loginError = By.cssSelector(".register-subtitle");
 
 
     public loginPage(WebDriver driver){
@@ -48,6 +49,10 @@ public class loginPage extends base {
 
     public WebElement getWelcome(){
         return driver.findElement(welcomeMsg);
+    }
+
+    public WebElement getloginError(){
+        return driver.findElement(loginError);
     }
 
 
