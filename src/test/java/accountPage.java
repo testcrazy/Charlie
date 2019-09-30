@@ -131,4 +131,31 @@ public class accountPage extends base {
 
         return data;
     }
+
+    @Test(priority = 7)
+    public void switchToProfileWindow() throws InterruptedException {
+        loginPage ap = new pageObjects.loginPage(driver);
+
+        //Call for switch window method
+        sleep(3000);
+        ap.switchProfileWindow();
+        Log.info("Switched successfully to new child window");
+    }
+
+    @Test(priority = 8)
+    public void validateProfileTitle(){
+        loginPage ap = new pageObjects.loginPage(driver);
+
+        //Compare profile page title with stored data
+        Assert.assertEquals(ap.getProfileTitle(), prop.getProperty("profileTitle"));
+        Log.info("Successfully validated profile page title with data");
+    }
+
+    @Test(priority = 9)
+    public void validateProfileUrl(){
+        loginPage ap = new pageObjects.loginPage(driver);
+
+        //Compare profile url with stored data
+        Assert.assertEquals(ap.getProfileUrl(), prop.getProperty("loginUrl"));
+    }
 }

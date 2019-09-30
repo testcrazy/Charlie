@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import resources.base;
 
+import java.util.Iterator;
+import java.util.Set;
+
 public class loginPage extends base {
 
     public WebDriver driver;
@@ -53,6 +56,28 @@ public class loginPage extends base {
 
     public WebElement getloginError(){
         return driver.findElement(loginError);
+    }
+
+    public void switchProfileWindow(){
+
+        //How many windows are open right now, will be stored in a set
+        Set<String> ids = driver.getWindowHandles();
+
+        //Get ID of child window
+        Iterator<String> it = ids.iterator();
+        String parentID = it.next();
+        String childID = it.next();
+
+        //Switch to child window
+        driver.switchTo().window(childID);
+    }
+
+    public String getProfileTitle(){
+        return driver.getTitle();
+    }
+
+    public String getProfileUrl(){
+        return driver.getCurrentUrl();
     }
 
 
