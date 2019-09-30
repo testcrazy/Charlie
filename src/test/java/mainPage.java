@@ -60,7 +60,7 @@ public class mainPage extends base {
 
         //Call for switch window method
         lp.switchChildWindow();
-
+        Log.info("Successfully switched to child window");
     }
 
     @Test(priority = 4)

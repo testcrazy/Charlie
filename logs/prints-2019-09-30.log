@@ -1,7 +1,0 @@
-08:38:25.444 [main] INFO  resources.base - Driver is initialized
-08:38:29.971 [main] INFO  resources.base - navigated to home page
-08:38:32.288 [main] INFO  resources.base - Successfully clicked the Login btn
-08:38:39.155 [main] INFO  resources.base - Successfully validated login btn
-08:50:42.631 [main] INFO  resources.base - Driver is initialized
-08:50:48.940 [main] INFO  resources.base - navigated to home page
-08:50:51.300 [main] INFO  resources.base - Successfully clicked the Login btn
